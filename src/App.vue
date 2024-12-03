@@ -1,26 +1,72 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="container">
+    <img
+      src="./assets/neotpia_logo.png"
+      alt="Netopia"
+      width="40%"
+      height="40%"
+    />
+    <div class="row">
+      <div class="col-md-8 col-12 d-flex flex-column align-items-center">
+        <Wheel :players="players" @spin-result="handleSpinResult" />
+        <p class="mt-3">{{ resultMessage }}</p>
+      </div>
+      <div class="col-md-4 col-12">
+        <PlayerList
+          :players="players"
+          @add-player="addPlayer"
+          @delete-player="deletePlayer"
+        />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Wheel from "./components/Wheel.vue";
+import PlayerList from "./components/PlayerList.vue";
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    Wheel,
+    PlayerList,
+  },
+  data() {
+    return {
+      players: ["Add a player"], // Default state
+      resultMessage: "",
+    };
+  },
+  methods: {
+    addPlayer(playerName) {
+      if (this.players.length >= 5) {
+        alert("You can only add 5 players!");
+        return;
+      }
+      if (!this.players.includes(playerName)) {
+        if (this.players.length === 1 && this.players[0] === "Add a player") {
+          this.players = [];
+        }
+        this.players.push(playerName);
+      }
+    },
+    deletePlayer(index) {
+      this.players.splice(index, 1);
+      if (this.players.length === 0) {
+        this.players = ["Add a player"];
+      }
+    },
+    handleSpinResult(player) {
+      this.resultMessage = `Player: ${player}`;
+    },
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.container {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

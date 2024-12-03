@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #191919;
+}
+
+p, button, h2, label {
+  color: #fff;
+}
+
+.container {
+  position: relative;
+}
+
+canvas {
+  margin: 20px auto;
+  display: block;
+}
+
+.wheel-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+#pointer {
+  position: absolute;
+  top: 50%;
+  right: -10px; /* Juste à droite de la roue */
+  transform: translateY(-50%) rotate(180deg); /* Rotation de 180° */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 20px; /* Triangle vers la gauche */
+  border-color: transparent transparent transparent #fff;
+  z-index: 10;
+}
+
+
+#spin-btn {
+  margin-top: 40px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
