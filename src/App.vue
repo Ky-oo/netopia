@@ -8,8 +8,9 @@
     />
     <div class="row">
       <div class="col-md-8 col-12 d-flex flex-column align-items-center">
-        <Wheel :players="players" @spin-result="handleSpinResult" />
+        <GameWheel ref="gameWheel" :players="players" @spin-result="handleSpinResult" @redraw-wheel="redrawWheel" />
         <p class="mt-3">{{ resultMessage }}</p>
+        <p class="mt-3">Step: {{ spinCount }}</p>
       </div>
       <div class="col-md-4 col-12">
         <PlayerList
@@ -23,20 +24,20 @@
 </template>
 
 <script>
-import Wheel from "./components/Wheel.vue";
+import GameWheel from "./components/Wheel.vue";
 import PlayerList from "./components/PlayerList.vue";
 import 'bootstrap/dist/css/bootstrap.css';
 
-
 export default {
   components: {
-    Wheel,
+    GameWheel,
     PlayerList,
   },
   data() {
     return {
       players: ["Add a player"], // Default state
       resultMessage: "",
+      spinCount: 0, // Compteur de tours
     };
   },
   methods: {
@@ -50,6 +51,7 @@ export default {
           this.players = [];
         }
         this.players.push(playerName);
+        this.$refs.gameWheel.redrawWheel(); // Redessiner la roue
       }
     },
     deletePlayer(index) {
@@ -57,9 +59,14 @@ export default {
       if (this.players.length === 0) {
         this.players = ["Add a player"];
       }
+      this.$refs.gameWheel.redrawWheel(); // Redessiner la roue
     },
     handleSpinResult(player) {
       this.resultMessage = `Player: ${player}`;
+      this.spinCount++;
+    },
+    redrawWheel() {
+      this.$refs.gameWheel.drawWheel();
     },
   },
 };

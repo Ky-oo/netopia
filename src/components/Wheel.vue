@@ -1,7 +1,5 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="wheel-container position-relative">
-    
     <canvas ref="wheelCanvas" width="400" height="400"></canvas>
     <button
       class="btn btn-primary rounded mt-3"
@@ -15,6 +13,7 @@
 
 <script>
 export default {
+  name: "GameWheel",
   props: {
     players: {
       type: Array,
@@ -111,6 +110,9 @@ export default {
     },
     easeOutCubic(t) {
       return 1 - Math.pow(1 - t, 3);
+    },
+    redrawWheel() {
+      this.drawWheel();
     },
   },
   mounted() {
