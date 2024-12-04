@@ -6,10 +6,13 @@
       class="img-fluid my-3"
     />
     <div class="row">
-      <div class="col-md-8 col-12 d-flex flex-column align-items-center">
-        <GameWheel ref="gameWheel" :players="players" @spin-result="handleSpinResult" @redraw-wheel="redrawWheel" />
+      <div class="col-md-8 col-12 d-flex flex-column align-items-center position-relative">
+        <div class="wheel-container position-relative">
+          <GameWheel ref="gameWheel" :players="players" @spin-result="handleSpinResult" @redraw-wheel="redrawWheel" />
+          <div id="pointer"></div> <!-- Ajout du pointeur -->
+        </div>
         <p class="mt-3">{{ resultMessage }}</p>
-        <p class="mt-3">Step: {{ spinCount }}</p>
+        <p class="mt-3">Step forward: {{ spinCount }}</p>
       </div>
       <div class="col-md-4 col-12">
         <PlayerList
@@ -74,5 +77,25 @@ export default {
 <style>
 .container {
   text-align: center;
+}
+
+.wheel-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+#pointer {
+  position: absolute;
+  top: 50%;
+  right: -20px; /* Juste à droite de la roue */
+  transform: translateY(-50%) rotate(180deg); /* Rotation de 180° */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 20px; /* Triangle vers la gauche */
+  border-color: transparent transparent transparent #fff;
+  z-index: 10;
 }
 </style>
