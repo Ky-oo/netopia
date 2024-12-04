@@ -9,7 +9,6 @@
       <div class="col-md-8 col-12 d-flex flex-column align-items-center position-relative">
         <div class="wheel-container position-relative">
           <GameWheel ref="gameWheel" :players="players" @spin-result="handleSpinResult" />
-          <div id="pointer"></div> <!-- Ajout du pointeur -->
         </div>
         <p class="mt-3">{{ resultMessage }}</p>
       </div>

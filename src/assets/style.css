@@ -48,20 +48,6 @@ row {
   margin: 0 auto; /* Center it horizontally */
 }
 
-#pointer {
-  position: absolute;
-  top: 45%;
-  right: -10px; /* Juste à droite de la roue */
-  transform: translateY(-50%) rotate(180deg); /* Rotation de 180° */
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 10px 0 10px 20px; /* Triangle vers la gauche */
-  border-color: transparent transparent transparent #fff;
-  z-index: 10;
-}
-
-
 #spin-btn {
   margin-top: 40px;
   padding: 10px 20px;
