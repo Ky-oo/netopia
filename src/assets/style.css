@@ -50,7 +50,7 @@ row {
 
 #pointer {
   position: absolute;
-  top: 50%;
+  top: 45%;
   right: -10px; /* Juste à droite de la roue */
   transform: translateY(-50%) rotate(180deg); /* Rotation de 180° */
   width: 0;
