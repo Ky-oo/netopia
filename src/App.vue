@@ -65,7 +65,7 @@ export default {
     },
     handleSpinResult(player) {
       this.resultMessage = `Player: ${player}`;
-      this.spinCount++; // Incrémenter le compteur de tours
+      this.spinCount === 8? this.spinCount = 1 : this.spinCount++; // Incrémenter le compteur de tours
     },
     redrawWheel() {
       this.$refs.gameWheel.drawWheel();
