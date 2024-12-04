@@ -1,14 +1,15 @@
 <template>
-  <div class="wheel-container position-relative">
-    <canvas ref="wheelCanvas" width="400" height="400"></canvas>
-    <button
-      class="btn btn-primary rounded mt-3"
-      @click="spinWheel"
-      :disabled="spinning"
-    >
-      Spin the Wheel
-    </button>
-  </div>
+<div class="wheel-container position-relative">
+  <canvas ref="wheelCanvas" width="400" height="400"></canvas>
+  <!-- Bouton repositionné ici -->
+  <button
+    class="btn btn-primary rounded mt-3"
+    @click="spinWheel"
+    :disabled="spinning"
+  >
+    Spin the Wheel
+  </button>
+</div>
 </template>
 
 <script>

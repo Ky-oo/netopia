@@ -14,16 +14,38 @@ p, button, h2, label {
   position: relative;
 }
 
+.wheel-container {
+  display: flex;
+  flex-direction: column; /* Les éléments sont empilés verticalement */
+  justify-content: center;
+  align-items: center; /* Centrage horizontal */
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto; /* Centrage de la roue dans la page */
+}
+
 canvas {
-  margin: 20px auto;
   display: block;
+  margin: auto;
+}
+
+button {
+  margin-top: 20px; /* Espace entre la roue et le bouton */
+}
+
+
+row {
+  max-width: 370px;
 }
 
 .wheel-container {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 400px;
-  margin: auto;
+  height: 100%; /* Ensure the container takes up all available space */
+  max-width: 400px; /* Limit the size of the wheel */
+  margin: 0 auto; /* Center it horizontally */
 }
 
 #pointer {

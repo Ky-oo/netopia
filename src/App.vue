@@ -3,8 +3,7 @@
     <img
       src="./assets/neotpia_logo.png"
       alt="Netopia"
-      width="40%"
-      height="40%"
+      class="img-fluid my-3"
     />
     <div class="row">
       <div class="col-md-8 col-12 d-flex flex-column align-items-center">
@@ -63,7 +62,7 @@ export default {
     },
     handleSpinResult(player) {
       this.resultMessage = `Player: ${player}`;
-      this.spinCount++;
+      this.spinCount++; // Incrémenter le compteur de tours
     },
     redrawWheel() {
       this.$refs.gameWheel.drawWheel();
