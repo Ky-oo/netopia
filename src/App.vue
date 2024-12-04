@@ -20,6 +20,7 @@
         />
       </div>
     </div>
+    <a href="/rules.pdf" class="btn btn-outline-danger my-4 w-100" target="_blank">See the rules</a>
   </div>
 </template>
 
