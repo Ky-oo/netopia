@@ -92,7 +92,7 @@ export default {
       }
 
       const spinAngle = Math.random() * 360 + 1440;
-      const duration = 3000;
+      const duration = 10000;
 
       let startTime = null;
       const finalAngle = this.currentAngle + (spinAngle * Math.PI) / 180;
