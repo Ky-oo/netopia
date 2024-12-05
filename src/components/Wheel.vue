@@ -86,9 +86,13 @@ export default {
       if (this.spinning) return;
       this.spinning = true;
       this.localPlayers = this.players
-      this.spinCount === 8 ? this.spinCount = 1 : this.spinCount++
-      const spinAngle = Math.random() * 360 + 1440; // Random spin
-      const duration = 3000; // Spin duration
+      if(this.localPlayers.length !== 0){
+        this.spinCount === 8 ? this.spinCount = 1 : this.spinCount++
+
+      }
+
+      const spinAngle = Math.random() * 360 + 1440;
+      const duration = 3000;
 
       let startTime = null;
       const finalAngle = this.currentAngle + (spinAngle * Math.PI) / 180;
