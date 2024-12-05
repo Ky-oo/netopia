@@ -91,7 +91,7 @@ export default {
 
       }
 
-      const spinAngle = Math.random() * 360 + 1440;
+      const spinAngle = Math.random() * 360 + 5440;
       const duration = 10000;
 
       let startTime = null;
