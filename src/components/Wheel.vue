@@ -8,6 +8,7 @@
     >
       Spin the Wheel
     </button>
+    <p class="mt-3"> Step Forward: {{ spinCount }}</p>
   </div>
 </template>
 
@@ -24,7 +25,8 @@ export default {
     return {
       spinning: false,
       currentAngle: 0,
-      localPlayers: [], // Utilisez des données locales pour gérer les joueurs
+      localPlayers: [],
+      spinCount: 0
     };
   },
   computed: {
@@ -84,6 +86,7 @@ export default {
       if (this.spinning) return;
       this.spinning = true;
       this.localPlayers = this.players
+      this.spinCount === 8 ? this.spinCount = 1 : this.spinCount++
       const spinAngle = Math.random() * 360 + 1440; // Random spin
       const duration = 3000; // Spin duration
 

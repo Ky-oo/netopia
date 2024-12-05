@@ -9,8 +9,10 @@
       <div class="col-md-8 col-12 d-flex flex-column align-items-center position-relative">
         <div class="wheel-container position-relative">
           <GameWheel ref="gameWheel" :players="players" @spin-result="handleSpinResult" />
+          <div class="result-overlay">
+            <p class="result-text"><strong>{{ resultMessage }}</strong></p>
+          </div>
         </div>
-        <p class="mt-3">{{ resultMessage }}</p>
       </div>
       <div class="col-md-4 col-12">
         <PlayerList
@@ -85,5 +87,19 @@ export default {
   width: 100%;
   max-width: 400px;
   margin: auto;
+}
+
+.result-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+.result-text {
+  font-size: 24px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 </style>
