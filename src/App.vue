@@ -62,7 +62,7 @@ export default {
       }
       this.players.forEach(p => {
         if (p.name !== playerName) {
-          p.weight += 1; // Augmenter le poids des autres joueurs
+          p.weight += 0.5; // Augmenter le poids des autres joueurs
         }
       });
       this.resultMessage = `Player: ${playerName}`;
