@@ -53,6 +53,7 @@ export default {
       if (this.playerName.trim() !== "") {
         this.$emit("add-player", this.playerName.trim());
         this.playerName = "";
+        this.drawWheel
       }
     },
     deletePlayer(index) {

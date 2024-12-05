@@ -48,12 +48,16 @@ export default {
       }
       if (!this.players.some(player => player.name === playerName)) {
         this.players.push({ name: playerName, weight: 1 });
-        this.$refs.gameWheel.redrawWheel(); // Redessiner la roue
+        this.$nextTick(() => {
+          this.$refs.gameWheel.redrawWheel(); // Redessiner la roue
+        });
       }
     },
     deletePlayer(index) {
       this.players.splice(index, 1);
-      this.$refs.gameWheel.redrawWheel(); // Redessiner la roue
+      this.$nextTick(() => {
+        this.$refs.gameWheel.redrawWheel(); // Redessiner la roue
+      });
     },
     handleSpinResult(playerName) {
       const player = this.players.find(p => p.name === playerName);
@@ -81,18 +85,5 @@ export default {
   width: 100%;
   max-width: 400px;
   margin: auto;
-}
-
-#pointer {
-  position: absolute;
-  top: 50%;
-  right: -20px;
-  transform: translateY(-50%) rotate(180deg);
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 10px 0 10px 20px;
-  border-color: transparent transparent transparent #fff;
-  z-index: 10;
 }
 </style>
